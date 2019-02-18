@@ -1,6 +1,7 @@
 package learning.mahmoud.myd.datalayer;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 @Entity(tableName = "word_table")
@@ -11,6 +12,10 @@ public class Word {
     private String word ;
     private String mean ;
     private String sentence ;
+
+    @Ignore
+    public Word() {
+    }
 
     public Word(String word, String mean, String sentence) {
         this.word = word;

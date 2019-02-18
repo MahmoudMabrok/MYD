@@ -16,9 +16,10 @@ import learning.mahmoud.myd.R;
 import learning.mahmoud.myd.datalayer.Word;
 
 public class WordAdapter extends RecyclerView.Adapter<WordAdapter.Holder> {
-
+    private static final String TAG = "WordAdapter";
 
     private List<Word> list;
+    private WordLisnter wordLisnter;
 
     public WordAdapter() {
         list = new ArrayList<>();
@@ -64,16 +65,34 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.Holder> {
         return list.size();
     }
 
+    public Word getWordAt(int pos) {
+        return list.get(pos);
+    }
+
+    public void setWordListner(WordLisnter listner) {
+        wordLisnter = listner;
+    }
+
+    interface WordLisnter {
+        void onClick(Word word);
+    }
+
     class Holder extends RecyclerView.ViewHolder {
         @BindView(R.id.tvWord)
         TextView tvWord;
         @BindView(R.id.tvWordMean)
         TextView tvWordMean;
 
-        public Holder(@NonNull View itemView) {
+        public Holder(@NonNull final View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    wordLisnter.onClick(list.get(getAdapterPosition()));
+                }
+            });
         }
     }
-
 }

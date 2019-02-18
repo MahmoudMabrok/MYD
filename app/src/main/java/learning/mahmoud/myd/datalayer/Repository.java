@@ -22,14 +22,12 @@ public class Repository {
         mWordList = wordDao.getAllWords() ;
     }
 
-
     public void insertWord(Word word){
         new InsertWordAsyncTask(wordDao).execute(word);
     }
 
     public void updateWord(Word word) {
         new UpdateWordAsyncTask(wordDao).execute(word);
-
     }
 
     public  void deleteWord(Word word){
@@ -38,6 +36,10 @@ public class Repository {
 
     public LiveData<List<Word>> getWordList() {
         return mWordList;
+    }
+
+    public void deleteAll() {
+
     }
 
 

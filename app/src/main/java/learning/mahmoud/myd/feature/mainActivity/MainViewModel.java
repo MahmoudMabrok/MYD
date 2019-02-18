@@ -1,7 +1,6 @@
 package learning.mahmoud.myd.feature.mainActivity;
 
 import android.app.Application;
-import android.app.ListActivity;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
@@ -26,5 +25,13 @@ public class MainViewModel extends AndroidViewModel {
 
     public LiveData<List<Word>> getWordList() {
         return wordList;
+    }
+
+    public void deleteAll() {
+        repository.deleteAll();
+    }
+
+    public void deleteWord(Word word) {
+        repository.deleteWord(word);
     }
 }
