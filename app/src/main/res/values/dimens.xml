@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="_5sdp">15dp</dimen>
+    <dimen name="tv_size">22sp</dimen>
+</resources>

@@ -1,0 +1,15 @@
+package learning.mahmoud.myd.feature.word_operation;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+import learning.mahmoud.myd.R;
+
+public class WordOperation extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_word_operation);
+    }
+}
